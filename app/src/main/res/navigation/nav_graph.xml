@@ -7,7 +7,19 @@
 
     <fragment
         android:id="@+id/splashScreen"
-        android:name="com.example.vtmcompanion.SplashScreenFragment"
-        tools:layout="@layout/fragment_splash_screen" />
+        android:name="com.nokey.vtmcompanion.SplashScreenFragment"
+        tools:layout="@layout/fragment_splash_screen"
+        android:label=" ">
+        <action
+            app:destination="@id/chooseClan"
+            app:exitAnim="@anim/fragment_fade_exit"
+            android:id="@+id/action_splashScreen_to_chooseClan" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/chooseClan"
+        android:name="com.nokey.vtmcompanion.charcreator.ChooseClanFragment"
+        tools:layout="@layout/fragment_choose_clan"
+        android:label="@string/choose_clan_sire_title" />
 
 </navigation>

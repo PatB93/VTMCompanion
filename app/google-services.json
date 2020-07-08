@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "354489695787",
+    "firebase_url": "https://vtm-companion.firebaseio.com",
+    "project_id": "vtm-companion",
+    "storage_bucket": "vtm-companion.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:354489695787:android:d1962deffc75327eabb46e",
+        "android_client_info": {
+          "package_name": "com.nokey.vtmcompanion"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "354489695787-tf1tlo8goi5112apvohqme3jl06ojbu3.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBVEdIiQnJenKTuegd1hdNr520ptrZEX8U"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "354489695787-tf1tlo8goi5112apvohqme3jl06ojbu3.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

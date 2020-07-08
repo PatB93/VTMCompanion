@@ -13,4 +13,13 @@
         <item name="fontFamily">sans-serif-smallcaps</item>
         <item name="android:textAlignment">center</item>
     </style>
+
+    <style name="Base.MyTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="toolbarStyle">@style/AppTheme.Toolbar</item>
+    </style>
+    <style name="AppTheme.Toolbar" parent="Widget.AppCompat.Toolbar">
+        <item name="android:background">@color/colorPrimaryDark</item>
+        <item name="navigationIcon">@drawable/ic_back</item>-
+        <item name="android:titleTextColor">@color/colorAccent</item>
+    </style>
 </resources>
