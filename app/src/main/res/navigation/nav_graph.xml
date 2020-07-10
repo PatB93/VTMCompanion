@@ -20,6 +20,15 @@
         android:id="@+id/chooseClan"
         android:name="com.nokey.vtmcompanion.charcreator.ChooseClanFragment"
         tools:layout="@layout/fragment_choose_clan"
-        android:label="@string/choose_clan_sire_title" />
+        android:label="@string/choose_clan_sire_title">
+        <action
+            app:destination="@id/nameSire"
+            android:id="@+id/action_chooseClan_to_nameSire"/>
+    </fragment>
+
+    <fragment
+        android:id="@+id/nameSire"
+        android:name="com.nokey.vtmcompanion.charcreator.NameSireFragment"
+        tools:layout="@layout/fragment_name_sire"/>
 
 </navigation>

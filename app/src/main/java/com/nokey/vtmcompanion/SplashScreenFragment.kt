@@ -9,8 +9,7 @@ import kotlinx.coroutines.MainScope
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 
-class SplashScreenFragment : NavigationFragment() {
-    private lateinit var binding: FragmentSplashScreenBinding
+class SplashScreenFragment : NavigationFragment<FragmentSplashScreenBinding>() {
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -19,7 +18,7 @@ class SplashScreenFragment : NavigationFragment() {
     ): View? {
         binding = FragmentSplashScreenBinding.inflate(inflater, container, false)
         startSplashScreenTimer()
-        return binding.root
+        return binding?.root
     }
 
     private fun startSplashScreenTimer() {

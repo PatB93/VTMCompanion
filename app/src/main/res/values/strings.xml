@@ -2,4 +2,10 @@
     <string name="app_name">VTM Companion</string>
     <string name="welcome_text">Welcome To The Masquerade</string>
     <string name="choose_clan_sire_title">Describe Your Sire</string>
+    <string name="nosferatu">Nosferatu</string>
+    <string name="ventrue">Ventrue</string>
+    <string name="toreador">Toreador</string>
+    <string name="bruja">Bruja</string>
+    <string name="sire_name">Name</string>
+    <string name="continue_button">Next</string>
 </resources>
