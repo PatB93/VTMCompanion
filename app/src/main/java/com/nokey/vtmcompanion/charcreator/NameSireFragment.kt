@@ -14,8 +14,11 @@ class NameSireFragment: NavigationFragment<FragmentNameSireBinding>() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        binding = FragmentNameSireBinding.inflate(inflater, container, false)
+        binding = FragmentNameSireBinding.inflate(inflater, container, false).apply {
+            nextButton.setOnClickListener {
+                NameSireFragmentDirections.actionNameSireToAttributeAssignment().navigate()
+            }
+        }
         return binding?.root
     }
-
 }

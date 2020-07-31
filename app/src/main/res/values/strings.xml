@@ -8,4 +8,16 @@
     <string name="bruja">Bruja</string>
     <string name="sire_name">Name</string>
     <string name="continue_button">Next</string>
+
+    <string-array name="attributes">
+        <item>strength</item>
+        <item>dexterity</item>
+        <item>stamina</item>
+        <item>charisma</item>
+        <item>manipulation</item>
+        <item>composure</item>
+        <item>intelligence</item>
+        <item>wits</item>
+        <item>resolve</item>
+    </string-array>
 </resources>

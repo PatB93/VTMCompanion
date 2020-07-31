@@ -10,16 +10,16 @@ enum class Clans(@StringRes val stringRes: Int) {
     BRUJA(R.string.bruja),
 }
 
-enum class Attributes(attributeType: AttributeType) {
-    STRENGTH(AttributeType.PHYSICAL),
-    DEXTERITY(AttributeType.PHYSICAL),
-    STAMINA(AttributeType.PHYSICAL),
-    CHARISMA(AttributeType.SOCIAL),
-    MANIPULATION(AttributeType.SOCIAL),
-    COMPOSURE(AttributeType.SOCIAL),
-    INTELLIGENCE(AttributeType.MENTAL),
-    WITS(AttributeType.MENTAL),
-    RESOLVE(AttributeType.MENTAL)
+enum class Attributes(val attributeType: AttributeType) { //}, @StringRes val nameRes: Int) {
+    Strength(AttributeType.PHYSICAL), //R.string.strength),
+    Dexterity(AttributeType.PHYSICAL), //R.string.dexterity),
+    Stamina(AttributeType.PHYSICAL), //R.string.stamina),
+    Charisma(AttributeType.SOCIAL), //R.string.charisma),
+    Manipulation(AttributeType.SOCIAL), //R.string.manipulation),
+    Composure(AttributeType.SOCIAL), //R.string.composure),
+    Intelligence(AttributeType.MENTAL), //R.string.intelligence),
+    Wits(AttributeType.MENTAL), //R.string.wits),
+    Resolve(AttributeType.MENTAL) //R.string.resolve)
 }
 
 enum class AttributeType{
