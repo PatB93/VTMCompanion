@@ -7,6 +7,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.nokey.vtmcompanion.R
 import com.nokey.vtmcompanion.data.Attributes
 import com.nokey.vtmcompanion.databinding.AttributeItemBinding
+import com.nokey.vtmcompanion.ext.requireContext
 
 class AttributeAssignmentAdapter: RecyclerView.Adapter<AttributeViewHolder>() {
     private lateinit var attributes: Array<String>
@@ -29,6 +30,6 @@ class AttributeViewHolder(private val binding: AttributeItemBinding): RecyclerVi
 
     fun bind(attribute: String) {
         binding.attributeName.text = attribute
-        binding.attributeSpinner.setAdapter(ArrayAdapter<Int>(binding.root.context, android.R.layout.simple_spinner_dropdown_item, numbers))
+        binding.attributeSpinner.setAdapter(ArrayAdapter<Int>(binding.requireContext(), android.R.layout.simple_spinner_dropdown_item, numbers))
     }
 }

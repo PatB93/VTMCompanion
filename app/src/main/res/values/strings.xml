@@ -2,22 +2,131 @@
     <string name="app_name">VTM Companion</string>
     <string name="welcome_text">Welcome To The Masquerade</string>
     <string name="choose_clan_sire_title">Describe Your Sire</string>
-    <string name="nosferatu">Nosferatu</string>
-    <string name="ventrue">Ventrue</string>
-    <string name="toreador">Toreador</string>
-    <string name="bruja">Bruja</string>
     <string name="sire_name">Name</string>
     <string name="continue_button">Next</string>
+    <string name="dots">%d Dots</string>
+
+    <string name="brujah">Brujah</string>
+    <string name="gangrel">Gangrel</string>
+    <string name="malkavian">Malkavian</string>
+    <string name="nosferatu">Nosferatu</string>
+    <string name="toreador">Toreador</string>
+    <string name="tremere">Tremere</string>
+    <string name="ventrue">Ventrue</string>
+    <string name="caitiff">Caitiff</string>
+    <string name="thin_blood">Thin-Blooded</string>
+
+    <string-array name="disciplines">
+        <item>Animalism</item>
+        <item>Auspex</item>
+        <item>Blood Sorcery</item>
+        <item>Celebrity</item>
+        <item>Dominate</item>
+        <item>Fortitude</item>
+        <item>Obfuscate</item>
+        <item>Potence</item>
+        <item>Presence</item>
+        <item>Protean</item>
+        <item>Thin-Blood Alchemy</item>
+    </string-array>
+
+    <string-array name="skills">
+        <item>Academics</item>
+        <item>Animal Ken</item>
+        <item>Athletics</item>
+        <item>Awareness</item>
+        <item>Brawl</item>
+        <item>Craft</item>
+        <item>Drive</item>
+        <item>Etiquette</item>
+        <item>Enhance</item>
+        <item>Firearms</item>
+        <item>Insight</item>
+        <item>Intimidation</item>
+        <item>Investigation</item>
+        <item>Larceny</item>
+        <item>Leadership</item>
+        <item>Medicine</item>
+        <item>Melee</item>
+        <item>Occult</item>
+        <item>Performance</item>
+        <item>Persuasion</item>
+        <item>Politics</item>
+        <item>Science</item>
+        <item>Stealth</item>
+        <item>Streetwise</item>
+        <item>Subterfuge</item>
+        <item>Survival</item>
+        <item>Technology</item>
+    </string-array>
 
     <string-array name="attributes">
-        <item>strength</item>
-        <item>dexterity</item>
-        <item>stamina</item>
-        <item>charisma</item>
-        <item>manipulation</item>
-        <item>composure</item>
-        <item>intelligence</item>
-        <item>wits</item>
-        <item>resolve</item>
+        <item>Strength</item>
+        <item>Dexterity</item>
+        <item>Stamina</item>
+        <item>Charisma</item>
+        <item>Manipulation</item>
+        <item>Composure</item>
+        <item>Intelligence</item>
+        <item>Wits</item>
+        <item>Resolve</item>
+    </string-array>
+
+    <string-array name="preadator_styles">
+        <item>Alleycat</item>
+        <item>Bagger</item>
+        <item>Blood Leech</item>
+        <item>Cleaver</item>
+        <item>Consensualist</item>
+        <item>Farmer</item>
+        <item>Osiris</item>
+        <item>Sandman</item>
+        <item>Scene Queen</item>
+        <item></item>
+    </string-array>
+
+    <string-array name="backgrounds">
+        <item>Allies</item>
+        <item>Contacts</item>
+        <item>Fame</item>
+        <item>Haven</item>
+        <item>Herd</item>
+        <item>Influence</item>
+        <item>Loresheet</item>
+        <item>Mask</item>
+        <item>Mawla</item>
+        <item>Resources</item>
+        <item>Retainers</item>
+        <item>Status</item>
+        <item>ETC…</item><!--        Come Back to this soon-->
+    </string-array>
+    <string-array name="coterie_types">
+        <item>Blood Cult</item>
+        <item>Cerberus</item>
+        <item>Champions</item>
+        <item>Commando</item>
+        <item>Day Watch</item>
+        <item>Fang Gang</item>
+        <item>Hunting Party</item>
+        <item>Maréchal</item>
+        <item>Nomads</item>
+        <item>Plumaries</item>
+        <item>Questari</item>
+        <item>Regency</item>
+        <item>Sbirri</item>
+        <item>Vehme</item>
+        <item>Watchmen</item>
+    </string-array>
+    
+    <string-array name="quick_skill_assign">
+        <item>Artist</item>
+        <item>Coder</item>
+        <item>Executive</item>
+        <item>Investigator</item>
+        <item>Junkie</item>
+        <item>Mafioso</item>
+        <item>Scholar</item>
+        <item>Socialite</item>
+        <item>Veteran</item>
     </string-array>
 </resources>

@@ -4,10 +4,15 @@ import androidx.annotation.StringRes
 import com.nokey.vtmcompanion.R
 
 enum class Clans(@StringRes val stringRes: Int) {
+    BRUJAH(R.string.brujah),
+    GANGREL(R.string.gangrel),
+    MALKAVIAN(R.string.malkavian),
     NOSFERATU(R.string.nosferatu),
-    VENTRUE(R.string.ventrue),
     TOREADOR(R.string.toreador),
-    BRUJA(R.string.bruja),
+    TREMERE(R.string.tremere),
+    VENTRUE(R.string.ventrue),
+    CAITIFF(R.string.caitiff),
+    THIN_BLOOD(R.string.thin_blood),
 }
 
 enum class Attributes(val attributeType: AttributeType) { //}, @StringRes val nameRes: Int) {
@@ -29,6 +34,7 @@ enum class AttributeType{
 }
 
 enum class Skills {
+    DEFAULT,
     ATHLETICS,
     BRAWL,
     CRAFT,

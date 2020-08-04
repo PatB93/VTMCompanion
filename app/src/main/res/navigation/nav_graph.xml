@@ -39,6 +39,15 @@
         android:id="@+id/attributeAssignment"
         android:name="com.nokey.vtmcompanion.charcreator.AttributesAssignmentFragment"
         tools:layout="@layout/fragment_attributes_assignment">
+        <action
+            android:id="@+id/action_attributeAssignment_to_skillAssignment"
+            app:destination="@id/skillAssignment"/>
+    </fragment>
+
+    <fragment
+        android:id="@+id/skillAssignment"
+        android:name="com.nokey.vtmcompanion.charcreator.ChooseSkillsFragment"
+        tools:layout="@layout/fragment_choose_skills">
     </fragment>
 
 </navigation>

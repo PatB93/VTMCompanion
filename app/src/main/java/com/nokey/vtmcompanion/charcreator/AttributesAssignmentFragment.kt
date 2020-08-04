@@ -14,8 +14,11 @@ class AttributesAssignmentFragment: NavigationFragment<FragmentAttributesAssignm
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        binding = FragmentAttributesAssignmentBinding.inflate(inflater, container, false).apply {
-            attributeList.adapter = AttributeAssignmentAdapter()
+        binding = FragmentAttributesAssignmentBinding.inflate(inflater, container, false).also {
+            it.attributeList.adapter = AttributeAssignmentAdapter()
+            it.nextButton.setOnClickListener {
+                AttributesAssignmentFragmentDirections.actionAttributeAssignmentToSkillAssignment().navigate()
+            }
         }
         return binding?.root
     }
