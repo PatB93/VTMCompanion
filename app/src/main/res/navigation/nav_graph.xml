@@ -8,27 +8,46 @@
     <fragment
         android:id="@+id/splashScreen"
         android:name="com.nokey.vtmcompanion.SplashScreenFragment"
-        tools:layout="@layout/fragment_splash_screen"
-        android:label=" ">
+        android:label=" "
+        tools:layout="@layout/fragment_splash_screen">
         <action
+            android:id="@+id/action_splashScreen_to_chooseClan"
             app:destination="@id/chooseClan"
-            app:exitAnim="@anim/fragment_fade_exit"
-            android:id="@+id/action_splashScreen_to_chooseClan" />
+            app:exitAnim="@anim/fragment_fade_exit" />
     </fragment>
 
     <fragment
         android:id="@+id/chooseClan"
         android:name="com.nokey.vtmcompanion.charcreator.ChooseClanFragment"
-        tools:layout="@layout/fragment_choose_clan"
-        android:label="@string/choose_clan_sire_title">
+        android:label="@string/choose_clan_sire_title"
+        tools:layout="@layout/fragment_choose_clan">
         <action
-            app:destination="@id/nameSire"
-            android:id="@+id/action_chooseClan_to_nameSire"/>
+            android:id="@+id/action_chooseClan_to_nameSire"
+            app:destination="@id/nameSire" />
     </fragment>
 
     <fragment
         android:id="@+id/nameSire"
         android:name="com.nokey.vtmcompanion.charcreator.NameSireFragment"
-        tools:layout="@layout/fragment_name_sire"/>
+        tools:layout="@layout/fragment_name_sire">
+        <action
+            android:id="@+id/action_nameSire_to_attributeAssignment"
+            app:destination="@id/attributeAssignment"/>
+    </fragment>
+
+    <fragment
+        android:id="@+id/attributeAssignment"
+        android:name="com.nokey.vtmcompanion.charcreator.AttributesAssignmentFragment"
+        tools:layout="@layout/fragment_attributes_assignment">
+        <action
+            android:id="@+id/action_attributeAssignment_to_skillAssignment"
+            app:destination="@id/skillAssignment"/>
+    </fragment>
+
+    <fragment
+        android:id="@+id/skillAssignment"
+        android:name="com.nokey.vtmcompanion.charcreator.ChooseSkillsFragment"
+        tools:layout="@layout/fragment_choose_skills">
+    </fragment>
 
 </navigation>
