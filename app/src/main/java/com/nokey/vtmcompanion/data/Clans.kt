@@ -29,9 +29,8 @@ enum class Clans(@StringRes val stringRes: Int, disciplineOptions: List<Discipli
         R.string.ventrue,
         listOf(Discipline.DOMINATE, Discipline.FORTITUDE, Discipline.PRESENCE)
     ),
-    CAITIFF(R.string.caitiff, listOf(Discipline.CELERITY, Discipline.POTENCE, Discipline.PRESENCE)),
-    THIN_BLOOD(
-        R.string.thin_blood,
+    CAITIFF(
+        R.string.caitiff,
         listOf(
             Discipline.CELERITY,
             Discipline.POTENCE,
@@ -47,6 +46,10 @@ enum class Clans(@StringRes val stringRes: Int, disciplineOptions: List<Discipli
             Discipline.THAUMATURGY,
             Discipline.VICISSITUDE
         )
+    ),
+    THIN_BLOOD(
+        R.string.thin_blood,
+        listOf(Discipline.THIN_BLOOD_ALCHEMY)
     ),
     LASOMBRA(
         R.string.lasombra,
@@ -120,5 +123,6 @@ enum class Discipline {
     DEMENTATION,
     OBFUSCATE,
     THAUMATURGY,
-    VICISSITUDE
+    VICISSITUDE,
+    THIN_BLOOD_ALCHEMY
 }

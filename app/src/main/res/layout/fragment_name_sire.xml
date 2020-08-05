@@ -6,6 +6,7 @@
     android:background="@color/colorPrimaryDark">
 
     <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/sire_name"
         style="AppTheme.TextInputView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -16,6 +17,7 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/sire_name_edit"
             android:layout_width="match_parent"
             android:layout_height="match_parent" />
     </com.google.android.material.textfield.TextInputLayout>

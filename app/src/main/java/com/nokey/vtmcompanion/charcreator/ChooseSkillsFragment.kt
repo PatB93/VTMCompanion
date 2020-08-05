@@ -7,15 +7,18 @@ import android.view.ViewGroup
 import com.nokey.vtmcompanion.NavigationFragment
 import com.nokey.vtmcompanion.databinding.FragmentChooseSkillsBinding
 
-class ChooseSkillsFragment: NavigationFragment<FragmentChooseSkillsBinding>() {
+class ChooseSkillsFragment : NavigationFragment<FragmentChooseSkillsBinding>() {
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-         binding = FragmentChooseSkillsBinding.inflate(layoutInflater, container, false).also {
+        binding = FragmentChooseSkillsBinding.inflate(layoutInflater, container, false).also {
             it.skillAssignment.adapter = ChooseSkillAdapter()
+            it.nextButton.setOnClickListener {
+                ChooseSkillsFragmentDirections.actionSkillAssignmentDisciplineSelection().navigate()
+            }
         }
         return binding?.root
     }

@@ -19,6 +19,7 @@
     <string name="tzimisce">Tzimisce</string>
     <string name="first_discipline_text">First Discipline</string>
     <string name="second_discipline_text">Second Discipline</string>
+    <string name="empty_name_toast">Please enter a name for your Sire</string>
 
     <string-array name="disciplines">
         <item>Animalism</item>

@@ -12,51 +12,54 @@
         tools:layout="@layout/fragment_splash_screen">
         <action
             android:id="@+id/action_splashScreen_to_chooseClan"
-            app:destination="@id/chooseClan"
+            app:destination="@id/char_creation_graph"
             app:exitAnim="@anim/fragment_fade_exit" />
     </fragment>
 
-    <fragment
-        android:id="@+id/chooseClan"
-        android:name="com.nokey.vtmcompanion.charcreator.ChooseClanFragment"
-        android:label="@string/choose_clan_sire_title"
-        tools:layout="@layout/fragment_choose_clan">
-        <action
-            android:id="@+id/action_chooseClan_to_nameSire"
-            app:destination="@id/nameSire" />
-    </fragment>
+    <navigation
+        android:id="@+id/char_creation_graph"
+        app:startDestination="@id/chooseClan">
 
-    <fragment
-        android:id="@+id/nameSire"
-        android:name="com.nokey.vtmcompanion.charcreator.NameSireFragment"
-        tools:layout="@layout/fragment_name_sire">
-        <action
-            android:id="@+id/action_nameSire_to_attributeAssignment"
-            app:destination="@id/attributeAssignment" />
-    </fragment>
+        <fragment
+            android:id="@+id/chooseClan"
+            android:name="com.nokey.vtmcompanion.charcreator.ChooseClanFragment"
+            android:label="@string/choose_clan_sire_title"
+            tools:layout="@layout/fragment_choose_clan">
+            <action
+                android:id="@+id/action_chooseClan_to_nameSire"
+                app:destination="@id/nameSire" />
+        </fragment>
 
-    <fragment
-        android:id="@+id/attributeAssignment"
-        android:name="com.nokey.vtmcompanion.charcreator.AttributesAssignmentFragment"
-        tools:layout="@layout/fragment_attributes_assignment">
-        <action
-            android:id="@+id/action_attributeAssignment_to_skillAssignment"
-            app:destination="@id/skillAssignment" />
-    </fragment>
+        <fragment
+            android:id="@+id/nameSire"
+            android:name="com.nokey.vtmcompanion.charcreator.NameSireFragment"
+            tools:layout="@layout/fragment_name_sire">
+            <action
+                android:id="@+id/action_nameSire_to_attributeAssignment"
+                app:destination="@id/attributeAssignment" />
+        </fragment>
 
-    <fragment
-        android:id="@+id/skillAssignment"
-        android:name="com.nokey.vtmcompanion.charcreator.ChooseSkillsFragment"
-        tools:layout="@layout/fragment_choose_skills">
-        <action
-            android:id="@+id/action_skillAssignment_disciplineSelection"
-            app:destination="@id/disciplineSelection" />
-    </fragment>
+        <fragment
+            android:id="@+id/attributeAssignment"
+            android:name="com.nokey.vtmcompanion.charcreator.AttributesAssignmentFragment"
+            tools:layout="@layout/fragment_attributes_assignment">
+            <action
+                android:id="@+id/action_attributeAssignment_to_skillAssignment"
+                app:destination="@id/skillAssignment" />
+        </fragment>
 
-    <fragment
-        android:id="@+id/disciplineSelection"
-        android:name="com.nokey.vtmcompanion.charcreator.DisciplineSelectionFragment"
-        tools:layout="@layout/fragment_discipline_selection">
-    </fragment>
+        <fragment
+            android:id="@+id/skillAssignment"
+            android:name="com.nokey.vtmcompanion.charcreator.ChooseSkillsFragment"
+            tools:layout="@layout/fragment_choose_skills">
+            <action
+                android:id="@+id/action_skillAssignment_disciplineSelection"
+                app:destination="@id/disciplineSelection" />
+        </fragment>
 
+        <fragment
+            android:id="@+id/disciplineSelection"
+            android:name="com.nokey.vtmcompanion.charcreator.DisciplineSelectionFragment"
+            tools:layout="@layout/fragment_discipline_selection"></fragment>
+    </navigation>
 </navigation>
