@@ -15,6 +15,10 @@
     <string name="ventrue">Ventrue</string>
     <string name="caitiff">Caitiff</string>
     <string name="thin_blood">Thin-Blooded</string>
+    <string name="lasombra">Lasombra</string>
+    <string name="tzimisce">Tzimisce</string>
+    <string name="first_discipline_text">First Discipline</string>
+    <string name="second_discipline_text">Second Discipline</string>
 
     <string-array name="disciplines">
         <item>Animalism</item>

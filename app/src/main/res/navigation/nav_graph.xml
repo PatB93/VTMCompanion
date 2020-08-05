@@ -32,7 +32,7 @@
         tools:layout="@layout/fragment_name_sire">
         <action
             android:id="@+id/action_nameSire_to_attributeAssignment"
-            app:destination="@id/attributeAssignment"/>
+            app:destination="@id/attributeAssignment" />
     </fragment>
 
     <fragment
@@ -41,13 +41,22 @@
         tools:layout="@layout/fragment_attributes_assignment">
         <action
             android:id="@+id/action_attributeAssignment_to_skillAssignment"
-            app:destination="@id/skillAssignment"/>
+            app:destination="@id/skillAssignment" />
     </fragment>
 
     <fragment
         android:id="@+id/skillAssignment"
         android:name="com.nokey.vtmcompanion.charcreator.ChooseSkillsFragment"
         tools:layout="@layout/fragment_choose_skills">
+        <action
+            android:id="@+id/action_skillAssignment_disciplineSelection"
+            app:destination="@id/disciplineSelection" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/disciplineSelection"
+        android:name="com.nokey.vtmcompanion.charcreator.DisciplineSelectionFragment"
+        tools:layout="@layout/fragment_discipline_selection">
     </fragment>
 
 </navigation>
