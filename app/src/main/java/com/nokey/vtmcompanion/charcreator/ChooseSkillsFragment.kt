@@ -4,10 +4,14 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.navGraphViewModels
 import com.nokey.vtmcompanion.NavigationFragment
+import com.nokey.vtmcompanion.R
 import com.nokey.vtmcompanion.databinding.FragmentChooseSkillsBinding
 
 class ChooseSkillsFragment : NavigationFragment<FragmentChooseSkillsBinding>() {
+
+    val viewModel by navGraphViewModels<CharacterCreationViewModel>(R.id.char_creation_graph)
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -15,8 +19,13 @@ class ChooseSkillsFragment : NavigationFragment<FragmentChooseSkillsBinding>() {
         savedInstanceState: Bundle?
     ): View? {
         binding = FragmentChooseSkillsBinding.inflate(layoutInflater, container, false).also {
-            it.skillAssignment.adapter = ChooseSkillAdapter()
+            val chooseSkillAdapter = ChooseSkillAdapter()
+            it.skillAssignment.adapter = chooseSkillAdapter
             it.nextButton.setOnClickListener {
+                viewModel.apply {
+                    skills = chooseSkillAdapter.skillDistribution
+                    finishSetup()
+                }
                 ChooseSkillsFragmentDirections.actionSkillAssignmentDisciplineSelection().navigate()
             }
         }
