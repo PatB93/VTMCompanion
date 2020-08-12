@@ -65,17 +65,15 @@
         <item>Technology</item>
     </string-array>
 
-    <string-array name="attributes">
-        <item>Strength</item>
-        <item>Dexterity</item>
-        <item>Stamina</item>
-        <item>Charisma</item>
-        <item>Manipulation</item>
-        <item>Composure</item>
-        <item>Intelligence</item>
-        <item>Wits</item>
-        <item>Resolve</item>
-    </string-array>
+    <string name="strength">Strength</string>
+    <string name="dexterity">Dexterity</string>
+    <string name="stamina">Stamina</string>
+    <string name="charisma">Charisma</string>
+    <string name="manipulation">Manipulation</string>
+    <string name="composure">Composure</string>
+    <string name="intelligence">Intelligence</string>
+    <string name="wits">Wits</string>
+    <string name="resolve">Resolve</string>
 
     <string-array name="preadator_styles">
         <item>Alleycat</item>

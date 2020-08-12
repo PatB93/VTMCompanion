@@ -61,16 +61,20 @@ enum class Clans(@StringRes val stringRes: Int, disciplineOptions: List<Discipli
     )
 }
 
-enum class Attributes(val attributeType: AttributeType) { //}, @StringRes val nameRes: Int) {
-    Strength(AttributeType.PHYSICAL), //R.string.strength),
-    Dexterity(AttributeType.PHYSICAL), //R.string.dexterity),
-    Stamina(AttributeType.PHYSICAL), //R.string.stamina),
-    Charisma(AttributeType.SOCIAL), //R.string.charisma),
-    Manipulation(AttributeType.SOCIAL), //R.string.manipulation),
-    Composure(AttributeType.SOCIAL), //R.string.composure),
-    Intelligence(AttributeType.MENTAL), //R.string.intelligence),
-    Wits(AttributeType.MENTAL), //R.string.wits),
-    Resolve(AttributeType.MENTAL) //R.string.resolve)
+enum class Attributes(
+    var dotsAssigned: Short,
+    val attributeType: AttributeType,
+    @StringRes val nameRes: Int
+) {
+     Strength(0, AttributeType.PHYSICAL, R.string.strength),
+     Dexterity(0, AttributeType.PHYSICAL, R.string.dexterity),
+     Stamina(0, AttributeType.PHYSICAL, R.string.stamina),
+     Charisma(0, AttributeType.SOCIAL, R.string.charisma),
+     Manipulation(0, AttributeType.SOCIAL, R.string.manipulation),
+     Composure(0, AttributeType.SOCIAL, R.string.composure),
+     Intelligence(0, AttributeType.MENTAL, R.string.intelligence),
+     Wits(0, AttributeType.MENTAL, R.string.wits),
+     Resolve(0, AttributeType.MENTAL, R.string.resolve)
 }
 
 enum class AttributeType {
