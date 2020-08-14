@@ -1,11 +1,10 @@
 package com.nokey.vtmcompanion.charcreator
 
 import androidx.lifecycle.ViewModel
-import com.nokey.vtmcompanion.data.Attributes
-import com.nokey.vtmcompanion.data.Clans
-import com.nokey.vtmcompanion.data.SkillDistributions
+import com.nokey.vtmcompanion.data.*
+import javax.inject.Inject
 
-class CharacterCreationViewModel : ViewModel() {
+class CharacterCreationViewModel @Inject constructor(val characterManager: CharacterManager) : ViewModel() {
     lateinit var sireName: String
     lateinit var selectedClan: Clans
     lateinit var skills: SkillDistributions

@@ -5,13 +5,15 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.navGraphViewModels
-import com.nokey.vtmcompanion.NavigationFragment
+import com.nokey.vtmcompanion.DaggerNavigationFragment
 import com.nokey.vtmcompanion.R
 import com.nokey.vtmcompanion.databinding.FragmentChooseSkillsBinding
 
-class ChooseSkillsFragment : NavigationFragment<FragmentChooseSkillsBinding>() {
+class ChooseSkillsFragment : DaggerNavigationFragment<FragmentChooseSkillsBinding>() {
 
-    val viewModel by navGraphViewModels<CharacterCreationViewModel>(R.id.char_creation_graph)
+    private val viewModel by navGraphViewModels<CharacterCreationViewModel>(R.id.char_creation_graph) {
+        viewModelFactory
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater,

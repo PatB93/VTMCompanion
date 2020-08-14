@@ -5,13 +5,17 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.navGraphViewModels
-import com.nokey.vtmcompanion.NavigationFragment
+import com.nokey.vtmcompanion.DaggerNavigationFragment
 import com.nokey.vtmcompanion.R
 import com.nokey.vtmcompanion.data.Clans
 import com.nokey.vtmcompanion.databinding.FragmentChooseClanBinding
+import dagger.hilt.android.AndroidEntryPoint
 
-class ChooseClanFragment : NavigationFragment<FragmentChooseClanBinding>() {
-    private val viewModel by navGraphViewModels<CharacterCreationViewModel>(R.id.char_creation_graph)
+@AndroidEntryPoint
+class ChooseClanFragment : DaggerNavigationFragment<FragmentChooseClanBinding>() {
+    private val viewModel by navGraphViewModels<CharacterCreationViewModel>(R.id.char_creation_graph) {
+        viewModelFactory
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater,

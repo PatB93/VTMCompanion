@@ -6,12 +6,14 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.navigation.navGraphViewModels
-import com.nokey.vtmcompanion.NavigationFragment
+import com.nokey.vtmcompanion.DaggerNavigationFragment
 import com.nokey.vtmcompanion.R
 import com.nokey.vtmcompanion.databinding.FragmentNameSireBinding
 
-class NameSireFragment: NavigationFragment<FragmentNameSireBinding>() {
-    private val viewModel by navGraphViewModels<CharacterCreationViewModel>(R.id.char_creation_graph)
+class NameSireFragment: DaggerNavigationFragment<FragmentNameSireBinding>() {
+    private val viewModel by navGraphViewModels<CharacterCreationViewModel>(R.id.char_creation_graph) {
+        viewModelFactory
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater,

@@ -5,11 +5,11 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ArrayAdapter
-import com.nokey.vtmcompanion.NavigationFragment
+import com.nokey.vtmcompanion.DaggerNavigationFragment
 import com.nokey.vtmcompanion.R
 import com.nokey.vtmcompanion.databinding.FragmentDisciplineSelectionBinding
 
-class DisciplineSelectionFragment : NavigationFragment<FragmentDisciplineSelectionBinding>() {
+class DisciplineSelectionFragment : DaggerNavigationFragment<FragmentDisciplineSelectionBinding>() {
 
     override fun onCreateView(
         inflater: LayoutInflater,
