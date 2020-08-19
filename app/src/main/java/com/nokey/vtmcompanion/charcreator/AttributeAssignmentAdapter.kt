@@ -23,7 +23,7 @@ class AttributeAssignmentAdapter :
 
     override fun onBindViewHolder(holder: AttributeViewHolder, position: Int) {
         if (attributeViews.size > position) attributeViews[position] = holder
-        else attributeViews[position] = holder
+        else attributeViews.add(holder)
         holder.bind(
             when (position) {
                 0 -> 4 // One at 4 dots

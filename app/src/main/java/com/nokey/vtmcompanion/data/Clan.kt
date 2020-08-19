@@ -3,7 +3,7 @@ package com.nokey.vtmcompanion.data
 import androidx.annotation.StringRes
 import com.nokey.vtmcompanion.R
 
-enum class Clans(@StringRes val stringRes: Int, disciplineOptions: List<Discipline>) {
+enum class Clan(@StringRes val stringRes: Int, disciplineOptions: List<Discipline>) {
     BRUJAH(R.string.brujah, listOf(Discipline.CELERITY, Discipline.POTENCE, Discipline.PRESENCE)),
     GANGREL(
         R.string.gangrel,
@@ -66,15 +66,15 @@ enum class Attributes(
     val attributeType: AttributeType,
     @StringRes val nameRes: Int
 ) {
-     Strength(0, AttributeType.PHYSICAL, R.string.strength),
-     Dexterity(0, AttributeType.PHYSICAL, R.string.dexterity),
-     Stamina(0, AttributeType.PHYSICAL, R.string.stamina),
-     Charisma(0, AttributeType.SOCIAL, R.string.charisma),
-     Manipulation(0, AttributeType.SOCIAL, R.string.manipulation),
-     Composure(0, AttributeType.SOCIAL, R.string.composure),
-     Intelligence(0, AttributeType.MENTAL, R.string.intelligence),
-     Wits(0, AttributeType.MENTAL, R.string.wits),
-     Resolve(0, AttributeType.MENTAL, R.string.resolve)
+    Strength(0, AttributeType.PHYSICAL, R.string.strength),
+    Dexterity(0, AttributeType.PHYSICAL, R.string.dexterity),
+    Stamina(0, AttributeType.PHYSICAL, R.string.stamina),
+    Charisma(0, AttributeType.SOCIAL, R.string.charisma),
+    Manipulation(0, AttributeType.SOCIAL, R.string.manipulation),
+    Composure(0, AttributeType.SOCIAL, R.string.composure),
+    Intelligence(0, AttributeType.MENTAL, R.string.intelligence),
+    Wits(0, AttributeType.MENTAL, R.string.wits),
+    Resolve(0, AttributeType.MENTAL, R.string.resolve)
 }
 
 enum class AttributeType {

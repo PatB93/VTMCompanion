@@ -23,7 +23,7 @@
         <fragment
             android:id="@+id/chooseClan"
             android:name="com.nokey.vtmcompanion.charcreator.ChooseClanFragment"
-            android:label="@string/choose_clan_sire_title"
+            android:label="@string/create_character_clan_selection"
             tools:layout="@layout/fragment_choose_clan">
             <action
                 android:id="@+id/action_chooseClan_to_nameSire"
@@ -33,6 +33,7 @@
         <fragment
             android:id="@+id/nameSire"
             android:name="com.nokey.vtmcompanion.charcreator.NameSireFragment"
+            android:label="@string/create_character_names_title"
             tools:layout="@layout/fragment_name_sire">
             <action
                 android:id="@+id/action_nameSire_to_attributeAssignment"
@@ -42,6 +43,7 @@
         <fragment
             android:id="@+id/attributeAssignment"
             android:name="com.nokey.vtmcompanion.charcreator.AttributesAssignmentFragment"
+            android:label="@string/create_character_attribute_selection"
             tools:layout="@layout/fragment_attributes_assignment">
             <action
                 android:id="@+id/action_attributeAssignment_to_skillAssignment"
@@ -51,6 +53,7 @@
         <fragment
             android:id="@+id/skillAssignment"
             android:name="com.nokey.vtmcompanion.charcreator.ChooseSkillsFragment"
+            android:label="@string/create_character_skill_selection"
             tools:layout="@layout/fragment_choose_skills">
             <action
                 android:id="@+id/action_skillAssignment_disciplineSelection"
@@ -59,7 +62,9 @@
 
         <fragment
             android:id="@+id/disciplineSelection"
+            android:label="@string/create_character_discipline_selection"
             android:name="com.nokey.vtmcompanion.charcreator.DisciplineSelectionFragment"
-            tools:layout="@layout/fragment_discipline_selection"></fragment>
+            tools:layout="@layout/fragment_discipline_selection">
+        </fragment>
     </navigation>
 </navigation>

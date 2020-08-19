@@ -12,7 +12,7 @@ import com.nokey.vtmcompanion.databinding.FragmentChooseSkillsBinding
 class ChooseSkillsFragment : DaggerNavigationFragment<FragmentChooseSkillsBinding>() {
 
     private val viewModel by navGraphViewModels<CharacterCreationViewModel>(R.id.char_creation_graph) {
-        viewModelFactory
+        defaultViewModelProviderFactory
     }
 
     override fun onCreateView(
@@ -26,7 +26,6 @@ class ChooseSkillsFragment : DaggerNavigationFragment<FragmentChooseSkillsBindin
             it.nextButton.setOnClickListener {
                 viewModel.apply {
                     skills = chooseSkillAdapter.skillDistribution
-                    finishSetup()
                 }
                 ChooseSkillsFragmentDirections.actionSkillAssignmentDisciplineSelection().navigate()
             }

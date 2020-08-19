@@ -12,7 +12,7 @@ import com.nokey.vtmcompanion.databinding.FragmentNameSireBinding
 
 class NameSireFragment: DaggerNavigationFragment<FragmentNameSireBinding>() {
     private val viewModel by navGraphViewModels<CharacterCreationViewModel>(R.id.char_creation_graph) {
-        viewModelFactory
+        defaultViewModelProviderFactory
     }
 
     override fun onCreateView(

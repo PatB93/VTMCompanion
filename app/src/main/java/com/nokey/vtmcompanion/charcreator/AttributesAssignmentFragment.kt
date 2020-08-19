@@ -11,7 +11,7 @@ import com.nokey.vtmcompanion.databinding.FragmentAttributesAssignmentBinding
 
 class AttributesAssignmentFragment: DaggerNavigationFragment<FragmentAttributesAssignmentBinding>() {
     private val viewModel by navGraphViewModels<CharacterCreationViewModel>(R.id.char_creation_graph) {
-        viewModelFactory
+        defaultViewModelProviderFactory
     }
     private val adapter = AttributeAssignmentAdapter()
 

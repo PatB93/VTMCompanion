@@ -5,11 +5,17 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ArrayAdapter
+import androidx.navigation.navGraphViewModels
 import com.nokey.vtmcompanion.DaggerNavigationFragment
 import com.nokey.vtmcompanion.R
+import com.nokey.vtmcompanion.data.Discipline
 import com.nokey.vtmcompanion.databinding.FragmentDisciplineSelectionBinding
 
 class DisciplineSelectionFragment : DaggerNavigationFragment<FragmentDisciplineSelectionBinding>() {
+
+    private val viewModel by navGraphViewModels<CharacterCreationViewModel>(R.id.char_creation_graph) {
+        defaultViewModelProviderFactory
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -36,6 +42,13 @@ class DisciplineSelectionFragment : DaggerNavigationFragment<FragmentDisciplineS
                         )
                     )
                 )
+                it.nextButton.setOnClickListener { _ ->
+                    viewModel.setDisciplines(
+                        Discipline.values()[it.firstDiscipline.selectedIndex],
+                        Discipline.values()[it.secondDiscipline.selectedIndex]
+                    )
+                    viewModel.finishSetup()
+                }
             }
         return binding?.root
     }

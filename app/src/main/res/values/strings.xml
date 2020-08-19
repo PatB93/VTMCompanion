@@ -1,7 +1,11 @@
 <resources>
     <string name="app_name">VTM Companion</string>
     <string name="welcome_text">Welcome To The Masquerade</string>
-    <string name="choose_clan_sire_title">Describe Your Sire</string>
+    <string name="create_character_clan_selection">Pick a Clan</string>
+    <string name="create_character_names_title">Describe Yourself</string>
+    <string name="create_character_skill_selection">What are your skills</string>
+    <string name="create_character_attribute_selection">Pick your Attributes</string>
+    <string name="create_character_discipline_selection">Pick your Disciplines</string>
     <string name="sire_name">Name</string>
     <string name="continue_button">Next</string>
     <string name="dots">%d Dots</string>
