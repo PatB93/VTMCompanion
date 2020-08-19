@@ -11,22 +11,31 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toEndOf="@id/attribute_divider"
+        app:layout_constraintEnd_toEndOf="parent"
         tools:text="Attribute"
         android:textColor="@color/title_color"
-        android:textSize="18sp"
-        android:padding="10dp"/>
+        android:textSize="18sp"/>
 
     <com.jaredrummler.materialspinner.MaterialSpinner
         android:id="@+id/attribute_spinner"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         app:ms_background_color="@color/colorAccent"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/attribute_divider"
         app:layout_constraintTop_toTopOf="parent"
         android:spinnerMode="dropdown"
-        android:layout_margin="5dp" />
+        android:layout_marginTop="10dp"
+        android:layout_marginStart="10dp" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/attribute_divider"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent=".7" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

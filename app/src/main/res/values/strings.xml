@@ -1,7 +1,11 @@
 <resources>
     <string name="app_name">VTM Companion</string>
     <string name="welcome_text">Welcome To The Masquerade</string>
-    <string name="choose_clan_sire_title">Describe Your Sire</string>
+    <string name="create_character_clan_selection">Pick a Clan</string>
+    <string name="create_character_names_title">Describe Yourself</string>
+    <string name="create_character_skill_selection">What are your skills</string>
+    <string name="create_character_attribute_selection">Pick your Attributes</string>
+    <string name="create_character_discipline_selection">Pick your Disciplines</string>
     <string name="sire_name">Name</string>
     <string name="continue_button">Next</string>
     <string name="dots">%d Dots</string>
@@ -15,6 +19,11 @@
     <string name="ventrue">Ventrue</string>
     <string name="caitiff">Caitiff</string>
     <string name="thin_blood">Thin-Blooded</string>
+    <string name="lasombra">Lasombra</string>
+    <string name="tzimisce">Tzimisce</string>
+    <string name="first_discipline_text">First Discipline</string>
+    <string name="second_discipline_text">Second Discipline</string>
+    <string name="empty_name_toast">Please enter a name for your Sire</string>
 
     <string-array name="disciplines">
         <item>Animalism</item>
@@ -60,17 +69,15 @@
         <item>Technology</item>
     </string-array>
 
-    <string-array name="attributes">
-        <item>Strength</item>
-        <item>Dexterity</item>
-        <item>Stamina</item>
-        <item>Charisma</item>
-        <item>Manipulation</item>
-        <item>Composure</item>
-        <item>Intelligence</item>
-        <item>Wits</item>
-        <item>Resolve</item>
-    </string-array>
+    <string name="strength">Strength</string>
+    <string name="dexterity">Dexterity</string>
+    <string name="stamina">Stamina</string>
+    <string name="charisma">Charisma</string>
+    <string name="manipulation">Manipulation</string>
+    <string name="composure">Composure</string>
+    <string name="intelligence">Intelligence</string>
+    <string name="wits">Wits</string>
+    <string name="resolve">Resolve</string>
 
     <string-array name="preadator_styles">
         <item>Alleycat</item>

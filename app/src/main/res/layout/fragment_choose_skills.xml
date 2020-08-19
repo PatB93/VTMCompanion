@@ -8,7 +8,21 @@
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/skill_assignment"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/next_button"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
+
+    <TextView
+        android:id="@+id/next_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/text_padding"
+        android:background="@color/tile_background"
+        android:gravity="center"
+        android:text="@string/continue_button"
+        android:textColor="@color/title_color"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

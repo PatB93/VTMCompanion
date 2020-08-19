@@ -5,11 +5,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.nokey.vtmcompanion.databinding.FragmentSplashScreenBinding
-import kotlinx.coroutines.MainScope
-import kotlinx.coroutines.delay
-import kotlinx.coroutines.launch
 
-class SplashScreenFragment : NavigationFragment<FragmentSplashScreenBinding>() {
+class SplashScreenFragment : DaggerNavigationFragment<FragmentSplashScreenBinding>() {
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -22,9 +19,9 @@ class SplashScreenFragment : NavigationFragment<FragmentSplashScreenBinding>() {
     }
 
     private fun startSplashScreenTimer() {
-        MainScope().launch {
-            delay(2000L)
+//        MainScope().launch {
+//            delay(2000L)
             SplashScreenFragmentDirections.actionSplashScreenToChooseClan().navigate()
-        }
+//        }
     }
 }

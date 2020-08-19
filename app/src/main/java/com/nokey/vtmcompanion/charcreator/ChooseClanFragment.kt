@@ -4,11 +4,18 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.nokey.vtmcompanion.NavigationFragment
-import com.nokey.vtmcompanion.data.Clans
+import androidx.navigation.navGraphViewModels
+import com.nokey.vtmcompanion.DaggerNavigationFragment
+import com.nokey.vtmcompanion.R
+import com.nokey.vtmcompanion.data.Clan
 import com.nokey.vtmcompanion.databinding.FragmentChooseClanBinding
+import dagger.hilt.android.AndroidEntryPoint
 
-class ChooseClanFragment : NavigationFragment<FragmentChooseClanBinding>() {
+@AndroidEntryPoint
+class ChooseClanFragment : DaggerNavigationFragment<FragmentChooseClanBinding>() {
+    private val viewModel by navGraphViewModels<CharacterCreationViewModel>(R.id.char_creation_graph) {
+        defaultViewModelProviderFactory
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -21,7 +28,8 @@ class ChooseClanFragment : NavigationFragment<FragmentChooseClanBinding>() {
         return binding?.root
     }
 
-    private fun onClanClicked(clan: Clans) {
+    private fun onClanClicked(clan: Clan) {
+        viewModel.selectedClan = clan
         ChooseClanFragmentDirections.actionChooseClanToNameSire().navigate()
     }
 }

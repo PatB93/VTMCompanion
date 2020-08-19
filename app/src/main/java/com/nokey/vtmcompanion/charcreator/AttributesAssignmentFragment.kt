@@ -4,10 +4,16 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.nokey.vtmcompanion.NavigationFragment
+import androidx.navigation.navGraphViewModels
+import com.nokey.vtmcompanion.DaggerNavigationFragment
+import com.nokey.vtmcompanion.R
 import com.nokey.vtmcompanion.databinding.FragmentAttributesAssignmentBinding
 
-class AttributesAssignmentFragment: NavigationFragment<FragmentAttributesAssignmentBinding>() {
+class AttributesAssignmentFragment: DaggerNavigationFragment<FragmentAttributesAssignmentBinding>() {
+    private val viewModel by navGraphViewModels<CharacterCreationViewModel>(R.id.char_creation_graph) {
+        defaultViewModelProviderFactory
+    }
+    private val adapter = AttributeAssignmentAdapter()
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -15,11 +21,22 @@ class AttributesAssignmentFragment: NavigationFragment<FragmentAttributesAssignm
         savedInstanceState: Bundle?
     ): View? {
         binding = FragmentAttributesAssignmentBinding.inflate(inflater, container, false).also {
-            it.attributeList.adapter = AttributeAssignmentAdapter()
+            it.attributeList.adapter = adapter
             it.nextButton.setOnClickListener {
-                AttributesAssignmentFragmentDirections.actionAttributeAssignmentToSkillAssignment().navigate()
+                for (views: AttributeViewHolder in adapter.attributeViews) {
+                    viewModel.attributes[views.attribute] = views.dots
+                }
+                AttributesAssignmentFragmentDirections.actionAttributeAssignmentToSkillAssignment()
+                    .navigate()
             }
         }
         return binding?.root
+    }
+
+    override fun onResume() {
+        super.onResume()
+        if (viewModel.attributes.size == 9) {
+            adapter.applyAttributes(viewModel.attributes)
+        }
     }
 }
