@@ -10,15 +10,16 @@ import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
 import java.security.InvalidParameterException
 
 @Entity
-data class Character(
-    @PrimaryKey
+class Character(
     val characterName: String,
     val sireName: String,
     val selectedClan: Clan,
     val skills: DistributionTypes,
     val attributes: MutableMap<Attributes, Short>,
     val disciplines: List<Discipline>
-)
+) {
+    @PrimaryKey(autoGenerate = true) var id: Int = 0
+}
 
 class CharacterConverters {
     private val moshi: Moshi = Moshi.Builder()

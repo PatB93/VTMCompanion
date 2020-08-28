@@ -77,6 +77,8 @@ enum class Attributes(
     Resolve(0, AttributeType.MENTAL, R.string.resolve)
 }
 
+typealias AttributeSet = Pair<Attributes, Short>
+
 enum class AttributeType {
     PHYSICAL,
     SOCIAL,

@@ -4,7 +4,10 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.lifecycle.lifecycleScope
 import com.nokey.vtmcompanion.databinding.FragmentSplashScreenBinding
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.launch
 
 class SplashScreenFragment : DaggerNavigationFragment<FragmentSplashScreenBinding>() {
 
@@ -19,9 +22,9 @@ class SplashScreenFragment : DaggerNavigationFragment<FragmentSplashScreenBindin
     }
 
     private fun startSplashScreenTimer() {
-//        MainScope().launch {
-//            delay(2000L)
+        lifecycleScope.launch {
+            delay(2000L)
             SplashScreenFragmentDirections.actionSplashScreenToChooseClan().navigate()
-//        }
+        }
     }
 }

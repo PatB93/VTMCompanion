@@ -18,7 +18,7 @@ class CharacterCreationViewModel @ViewModelInject constructor(
     var attributes: MutableMap<Attributes, Short> = mutableMapOf() // Map of Attribute -> Dots
     var disciplines = Array(2) { Discipline.ANIMALISM }
 
-    fun finishSetup() {
+    suspend fun finishSetup() {
         viewModelScope.launch(Dispatchers.IO) {
             val character =
                 Character(sireName, sireName, selectedClan, skills, attributes, disciplines.toList())

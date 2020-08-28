@@ -5,11 +5,13 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ArrayAdapter
+import androidx.lifecycle.lifecycleScope
 import androidx.navigation.navGraphViewModels
 import com.nokey.vtmcompanion.DaggerNavigationFragment
 import com.nokey.vtmcompanion.R
 import com.nokey.vtmcompanion.data.Discipline
 import com.nokey.vtmcompanion.databinding.FragmentDisciplineSelectionBinding
+import kotlinx.coroutines.launch
 
 class DisciplineSelectionFragment : DaggerNavigationFragment<FragmentDisciplineSelectionBinding>() {
 
@@ -47,7 +49,10 @@ class DisciplineSelectionFragment : DaggerNavigationFragment<FragmentDisciplineS
                         Discipline.values()[it.firstDiscipline.selectedIndex],
                         Discipline.values()[it.secondDiscipline.selectedIndex]
                     )
-                    viewModel.finishSetup()
+                    lifecycleScope.launch {
+                        viewModel.finishSetup()
+                        DisciplineSelectionFragmentDirections.actionDisciplineSelectionCharacterSheet().navigate()
+                    }
                 }
             }
         return binding?.root
