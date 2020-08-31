@@ -1,15 +1,11 @@
 package com.nokey.vtmcompanion.data
 
 import android.content.SharedPreferences
+import androidx.lifecycle.MutableLiveData
+import io.mockk.*
 import io.mockk.impl.annotations.MockK
 import io.mockk.junit5.MockKExtension
-import io.mockk.mockk
-import io.mockk.verify
-import io.mockk.verifyAll
-import org.junit.jupiter.api.BeforeAll
-import org.junit.jupiter.api.Nested
-import org.junit.jupiter.api.Test
-import org.junit.jupiter.api.TestInstance
+import org.junit.jupiter.api.*
 import org.junit.jupiter.api.extension.ExtendWith
 
 @ExtendWith(MockKExtension::class)
@@ -41,13 +37,47 @@ internal class CharacterManagerTest {
     }
 
     @Nested
+    @TestInstance(TestInstance.Lifecycle.PER_CLASS)
     inner class GetCharacter {
 
+        @BeforeEach
+        fun resetMocks() {
+            clearMocks(characterDao, sharedPreferences)
+        }
+
         @Test
-        fun noId_getIdFromSharedPrefs() {
+        fun noIdAndSharedPrefsReturnsDefault_getFirstCharacterFromDB() {
+            val character = mockk<Character>()
+            every { character.id } returns 2
+            every { sharedPreferences.getLastUsedCharacterId() } returns -1
+            every { characterDao.getFirstCharacter() } returns MutableLiveData(character)
+
             subject.getCharacter()
 
-            verify { characterDao.getCharacterWithId(sharedPreferences.getLastUsedCharacterId()) }
+            verifyAll {
+                sharedPreferences.getLastUsedCharacterId()
+                characterDao.getFirstCharacter()
+                sharedPreferences.setLastUsedCharacterId(2)
+            }
+            verify(exactly = 0) {
+                characterDao.getCharacterWithId(any()) wasNot Called
+            }
+        }
+
+        @Test
+        fun noIdAndSharedPrefsHasValue_getIdFromSharedPrefs() {
+            every { sharedPreferences.getLastUsedCharacterId() } returns 1
+
+            subject.getCharacter()
+
+            verify {
+                sharedPreferences.getLastUsedCharacterId()
+                characterDao.getCharacterWithId(1)
+            }
+            verify(exactly = 0) {
+                sharedPreferences.setLastUsedCharacterId(any())
+                characterDao.getFirstCharacter()
+            }
         }
 
         @Test
@@ -58,7 +88,10 @@ internal class CharacterManagerTest {
                 characterDao.getCharacterWithId(1)
                 sharedPreferences.setLastUsedCharacterId(1)
             }
+            verify(exactly = 0) {
+                characterDao.getFirstCharacter()
+                sharedPreferences.getLastUsedCharacterId()
+            }
         }
     }
-
 }

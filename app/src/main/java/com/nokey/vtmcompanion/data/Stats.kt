@@ -62,7 +62,7 @@ enum class Clan(@StringRes val stringRes: Int, disciplineOptions: List<Disciplin
 }
 
 enum class Attributes(
-    var dotsAssigned: Short,
+    var dotsAssigned: Int,
     val attributeType: AttributeType,
     @StringRes val nameRes: Int
 ) {
@@ -77,7 +77,7 @@ enum class Attributes(
     Resolve(0, AttributeType.MENTAL, R.string.resolve)
 }
 
-typealias AttributeSet = Pair<Attributes, Short>
+typealias AttributeSet = Pair<Attributes, Int>
 
 enum class AttributeType {
     PHYSICAL,

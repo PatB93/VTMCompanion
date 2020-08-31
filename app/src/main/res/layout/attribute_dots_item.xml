@@ -12,9 +12,10 @@
         android:layout_weight="1"
         android:padding="@dimen/text_padding"
         android:textSize="18sp"
+        android:textStyle="bold"
         tools:text="Attribute" />
 
-    <com.nokey.vtmcompanion.charsheet.component.DotsView
+    <com.nokey.vtmcompanion.component.DotsView
         android:id="@+id/attribute_dots"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

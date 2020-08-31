@@ -1,4 +1,4 @@
-package com.nokey.vtmcompanion.charsheet.component
+package com.nokey.vtmcompanion.component
 
 import android.content.Context
 import android.util.AttributeSet

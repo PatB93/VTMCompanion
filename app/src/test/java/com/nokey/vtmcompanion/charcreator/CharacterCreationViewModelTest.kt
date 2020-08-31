@@ -26,12 +26,12 @@ internal class CharacterCreationViewModelTest {
 
     @BeforeAll
     fun setupCharacter() {
-        subject = CharacterCreationViewModel(characterManager, savedStateHandle)
+        subject = CharacterCreationViewModel(characterManager)
 
         subject.sireName = "Sire"
         subject.selectedClan = Clan.BRUJAH
         subject.skills = DistributionTypes.Balanced
-        subject.attributes = mutableMapOf(AttributeSet(Attributes.Charisma, 1))
+        subject.attributes = listOf(Attributes.Charisma)
         subject.disciplines = arrayOf(Discipline.ANIMALISM, Discipline.ANIMALISM)
     }
 

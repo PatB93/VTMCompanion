@@ -15,7 +15,7 @@ class Character(
     val sireName: String,
     val selectedClan: Clan,
     val skills: DistributionTypes,
-    val attributes: MutableMap<Attributes, Short>,
+    val attributes: List<Attributes>,
     val disciplines: List<Discipline>
 ) {
     @PrimaryKey(autoGenerate = true) var id: Int = 0
@@ -55,19 +55,18 @@ class CharacterConverters {
     }
 
     @TypeConverter
-    fun attributeToJson(attributes: MutableMap<Attributes, Short>): String {
-        val adapter = moshi.adapter(MutableMap::class.java)
+    fun attributeToJson(attributes: List<Attributes>): String {
+        val adapter = moshi.adapter(List::class.java)
         return adapter.toJson(attributes)
     }
 
     @TypeConverter
-    fun jsonToAttributes(json: String): MutableMap<Attributes, Short>? {
+    fun jsonToAttributes(json: String): List<Attributes>? {
         val type = Types.newParameterizedType(
-            MutableMap::class.java,
-            Attributes::class.java,
-            Short::class.java
+            List::class.java,
+            Attributes::class.java
         )
-        val adapter = moshi.adapter<MutableMap<Attributes, Short>>(type)
+        val adapter = moshi.adapter<List<Attributes>>(type)
         return adapter.fromJson(json)
     }
 

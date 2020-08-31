@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import androidx.navigation.navGraphViewModels
 import com.nokey.vtmcompanion.DaggerNavigationFragment
 import com.nokey.vtmcompanion.R
+import com.nokey.vtmcompanion.data.Attributes
 import com.nokey.vtmcompanion.databinding.FragmentAttributesAssignmentBinding
 
 class AttributesAssignmentFragment: DaggerNavigationFragment<FragmentAttributesAssignmentBinding>() {
@@ -20,11 +21,12 @@ class AttributesAssignmentFragment: DaggerNavigationFragment<FragmentAttributesA
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        binding = FragmentAttributesAssignmentBinding.inflate(inflater, container, false).also {
-            it.attributeList.adapter = adapter
-            it.nextButton.setOnClickListener {
+        binding = FragmentAttributesAssignmentBinding.inflate(inflater, container, false).also { binding ->
+            binding.attributeList.adapter = adapter
+            binding.nextButton.setOnClickListener {
+                val attributes: List<Attributes> = adapter.attributeViews.map { it.attribute }
                 for (views: AttributeViewHolder in adapter.attributeViews) {
-                    viewModel.attributes[views.attribute] = views.dots
+                    viewModel.attributes = attributes
                 }
                 AttributesAssignmentFragmentDirections.actionAttributeAssignmentToSkillAssignment()
                     .navigate()

@@ -8,7 +8,7 @@ object SharedPrefsNames {
     const val APP_NAME = "VTMCompanion"
 }
 
-fun SharedPreferences.getLastUsedCharacterId(): Int = this.getInt(LAST_USED_CHARACTER_ID, 0)
+fun SharedPreferences.getLastUsedCharacterId(): Int = this.getInt(LAST_USED_CHARACTER_ID, -1)
 fun SharedPreferences.setLastUsedCharacterId(id: Int) {
     this.edit().putInt(LAST_USED_CHARACTER_ID, id).apply()
 }

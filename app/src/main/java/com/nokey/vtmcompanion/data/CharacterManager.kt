@@ -1,6 +1,7 @@
 package com.nokey.vtmcompanion.data
 
 import android.content.SharedPreferences
+import androidx.lifecycle.LiveData
 import timber.log.Timber
 import javax.inject.Inject
 
@@ -16,12 +17,23 @@ class CharacterManager @Inject constructor(
         characterDao.addNewCharacter(character)
     }
 
-    fun getCharacter(characterId: Int = usePreviousCharacter): Character {
+    fun getCharacter(characterId: Int = usePreviousCharacter): LiveData<Character> {
         return if (characterId == usePreviousCharacter) {
-            characterDao.getCharacterWithId(sharedPreferences.getLastUsedCharacterId())
+            getCharacterFromSharedPrefsOrChooseDefault()
         } else {
             sharedPreferences.setLastUsedCharacterId(characterId)
             characterDao.getCharacterWithId(characterId)
+        }
+    }
+
+    private fun getCharacterFromSharedPrefsOrChooseDefault(): LiveData<Character> {
+        val lastUsedCharacter = sharedPreferences.getLastUsedCharacterId()
+        return if (lastUsedCharacter == usePreviousCharacter) {
+            characterDao.getFirstCharacter().also {
+                sharedPreferences.setLastUsedCharacterId(it.value?.id ?: usePreviousCharacter)
+            }
+        } else {
+            characterDao.getCharacterWithId(lastUsedCharacter)
         }
     }
 }

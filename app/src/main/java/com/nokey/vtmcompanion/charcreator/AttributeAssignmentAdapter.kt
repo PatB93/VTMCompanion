@@ -10,7 +10,7 @@ import com.nokey.vtmcompanion.ext.requireContext
 
 class AttributeAssignmentAdapter :
     RecyclerView.Adapter<AttributeViewHolder>() {
-    var attributes = Attributes.values()
+    var attributes = Attributes.values().toList()
     var attributeViews = arrayListOf<AttributeViewHolder>()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): AttributeViewHolder {
@@ -45,12 +45,8 @@ class AttributeAssignmentAdapter :
         }
     }
 
-    fun applyAttributes(updateAttributes: Map<Attributes, Short>) {
-        attributes = updateAttributes
-            .toList()
-            .sortedBy { it.second }
-            .map { it.first }
-            .toTypedArray()
+    fun applyAttributes(updateAttributes: List<Attributes>) {
+        attributes = updateAttributes.sortedBy { it.dotsAssigned }
         for ((index, view: AttributeViewHolder) in attributeViews.withIndex()) {
             view.updateAttribute(attributes[index])
         }
@@ -63,8 +59,8 @@ class AttributeViewHolder(
 ) :
     RecyclerView.ViewHolder(binding.root) {
     lateinit var attribute: Attributes
-    var dots: Short = 0
-    fun bind(numberDots: Short, position: Int) {
+    var dots: Int = 0
+    fun bind(numberDots: Int, position: Int) {
         dots = numberDots
         val arrayAdapter = AttributeSpinnerAdapter(binding.requireContext())
         binding.apply {
