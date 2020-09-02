@@ -9,6 +9,7 @@ import androidx.navigation.navGraphViewModels
 import com.nokey.vtmcompanion.DaggerNavigationFragment
 import com.nokey.vtmcompanion.R
 import com.nokey.vtmcompanion.databinding.FragmentNameSireBinding
+import com.nokey.vtmcompanion.hideKeyboard
 
 class NameSireFragment: DaggerNavigationFragment<FragmentNameSireBinding>() {
     private val viewModel by navGraphViewModels<CharacterCreationViewModel>(R.id.char_creation_graph) {
@@ -31,5 +32,10 @@ class NameSireFragment: DaggerNavigationFragment<FragmentNameSireBinding>() {
             }
         }
         return binding?.root
+    }
+
+    override fun onPause() {
+        super.onPause()
+        view?.hideKeyboard()
     }
 }

@@ -2,6 +2,7 @@ package com.nokey.vtmcompanion.data
 
 import androidx.annotation.StringRes
 import com.nokey.vtmcompanion.R
+import java.lang.UnsupportedOperationException
 
 enum class Clan(@StringRes val stringRes: Int, disciplineOptions: List<Discipline>) {
     BRUJAH(R.string.brujah, listOf(Discipline.CELERITY, Discipline.POTENCE, Discipline.PRESENCE)),
@@ -61,23 +62,43 @@ enum class Clan(@StringRes val stringRes: Int, disciplineOptions: List<Disciplin
     )
 }
 
-enum class Attributes(
+sealed class Attributes(
     var dotsAssigned: Int,
     val attributeType: AttributeType,
     @StringRes val nameRes: Int
 ) {
-    Strength(0, AttributeType.PHYSICAL, R.string.strength),
-    Dexterity(0, AttributeType.PHYSICAL, R.string.dexterity),
-    Stamina(0, AttributeType.PHYSICAL, R.string.stamina),
-    Charisma(0, AttributeType.SOCIAL, R.string.charisma),
-    Manipulation(0, AttributeType.SOCIAL, R.string.manipulation),
-    Composure(0, AttributeType.SOCIAL, R.string.composure),
-    Intelligence(0, AttributeType.MENTAL, R.string.intelligence),
-    Wits(0, AttributeType.MENTAL, R.string.wits),
-    Resolve(0, AttributeType.MENTAL, R.string.resolve)
+    companion object {
+        fun values(): List<Attributes> {
+            return listOf(
+                Strength(),
+                Dexterity(),
+                Stamina(),
+                Charisma(),
+                Manipulation(),
+                Composure(),
+                Intelligence(),
+                Wits(),
+                Resolve()
+            )
+        }
+    }
+    class Strength: Attributes(0, AttributeType.PHYSICAL, R.string.strength)
+    class Dexterity: Attributes(0, AttributeType.PHYSICAL, R.string.dexterity)
+    class Stamina: Attributes(0, AttributeType.PHYSICAL, R.string.stamina)
+    class Charisma: Attributes(0, AttributeType.SOCIAL, R.string.charisma)
+    class Manipulation: Attributes(0, AttributeType.SOCIAL, R.string.manipulation)
+    class Composure: Attributes(0, AttributeType.SOCIAL, R.string.composure)
+    class Intelligence: Attributes(0, AttributeType.MENTAL, R.string.intelligence)
+    class Wits: Attributes(0, AttributeType.MENTAL, R.string.wits)
+    class Resolve: Attributes(0, AttributeType.MENTAL, R.string.resolve)
 }
 
-typealias AttributeSet = Pair<Attributes, Int>
+fun List<Attributes>.getAttributeOfType(attribute: Attributes): Attributes? {
+    for (attr: Attributes in this) {
+        if (attr.nameRes == attribute.nameRes) return attr
+    }
+    return null
+}
 
 enum class AttributeType {
     PHYSICAL,

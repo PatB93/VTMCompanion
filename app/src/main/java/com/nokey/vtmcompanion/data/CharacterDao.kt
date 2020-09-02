@@ -17,5 +17,5 @@ interface CharacterDao {
 
     // TODO : TechDebt - Think about implications of replacing characters of same name (int ID might be a better indicator)
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    fun addNewCharacter(character: Character)
+    suspend fun addNewCharacter(character: Character)
 }

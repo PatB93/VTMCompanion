@@ -12,7 +12,7 @@ class CharacterManager @Inject constructor(
 
     private val usePreviousCharacter = -1
 
-    fun createCharacter(character: Character) {
+    suspend fun createCharacter(character: Character) {
         Timber.d("${character.characterName} Was added to the Character Database")
         characterDao.addNewCharacter(character)
     }

@@ -11,6 +11,7 @@
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         app:layout_constraintStart_toStartOf="@+id/guideline_start"
         android:layout_marginTop="@dimen/ms__padding_top"
+        android:nestedScrollingEnabled="false"
         app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.constraintlayout.widget.Guideline

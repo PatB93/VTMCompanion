@@ -11,7 +11,7 @@ import com.nokey.vtmcompanion.DaggerNavigationFragment
 import com.nokey.vtmcompanion.R
 import com.nokey.vtmcompanion.data.Discipline
 import com.nokey.vtmcompanion.databinding.FragmentDisciplineSelectionBinding
-import kotlinx.coroutines.launch
+import kotlinx.coroutines.*
 
 class DisciplineSelectionFragment : DaggerNavigationFragment<FragmentDisciplineSelectionBinding>() {
 
@@ -49,9 +49,12 @@ class DisciplineSelectionFragment : DaggerNavigationFragment<FragmentDisciplineS
                         Discipline.values()[it.firstDiscipline.selectedIndex],
                         Discipline.values()[it.secondDiscipline.selectedIndex]
                     )
-                    lifecycleScope.launch {
+                    lifecycleScope.launch(Dispatchers.IO) {
                         viewModel.finishSetup()
-                        DisciplineSelectionFragmentDirections.actionDisciplineSelectionCharacterSheet().navigate()
+                        withContext(Dispatchers.Main) {
+                            DisciplineSelectionFragmentDirections.actionDisciplineSelectionCharacterSheet()
+                                .navigate()
+                        }
                     }
                 }
             }

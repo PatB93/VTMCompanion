@@ -6,6 +6,7 @@ import androidx.lifecycle.viewModelScope
 import com.nokey.vtmcompanion.data.*
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+import timber.log.Timber
 
 class CharacterCreationViewModel @ViewModelInject constructor(
     private val characterManager: CharacterManager
@@ -16,10 +17,7 @@ class CharacterCreationViewModel @ViewModelInject constructor(
     var attributes: List<Attributes> = listOf()
     var disciplines = Array(2) { Discipline.ANIMALISM }
 
-
-    // TODO : Suspend?
-    fun finishSetup() {
-        viewModelScope.launch(Dispatchers.IO) {
+    suspend fun finishSetup() {
             val character =
                 Character(
                     sireName,
@@ -29,9 +27,8 @@ class CharacterCreationViewModel @ViewModelInject constructor(
                     attributes,
                     disciplines.toList()
                 )
-
+            Timber.d("Saving $character: ${character.characterName} with attributes : ${character.attributes.size}")
             characterManager.createCharacter(character)
-        }
     }
 
     fun setDisciplines(firstDiscipline: Discipline, secondDiscipline: Discipline) {

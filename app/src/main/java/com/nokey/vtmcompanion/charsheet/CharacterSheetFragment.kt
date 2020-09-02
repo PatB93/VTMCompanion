@@ -10,9 +10,11 @@ import com.nokey.vtmcompanion.DaggerNavigationFragment
 import com.nokey.vtmcompanion.R
 import com.nokey.vtmcompanion.databinding.FragmentCharacterSheetBinding
 import dagger.hilt.android.AndroidEntryPoint
+import timber.log.Timber
 
 @AndroidEntryPoint
 class CharacterSheetFragment : DaggerNavigationFragment<FragmentCharacterSheetBinding>() {
+    private val adapter = AttributeDotsAdapter()
     private val viewModel by navGraphViewModels<CharacterSheetViewModel>(R.id.character_sheet) {
         defaultViewModelProviderFactory
     }
@@ -23,15 +25,18 @@ class CharacterSheetFragment : DaggerNavigationFragment<FragmentCharacterSheetBi
         savedInstanceState: Bundle?
     ): View? {
         binding = FragmentCharacterSheetBinding.inflate(layoutInflater, container, false).also {
-            init(it)
+            it.attributeView.adapter = adapter
+            init()
         }
 
         return binding?.root
     }
 
-    private fun init(binding: FragmentCharacterSheetBinding) {
-        viewModel.getCharacter().observe(viewLifecycleOwner, Observer {
-            binding.attributeView.adapter = AttributeDotsAdapter(it.attributes.toList())
+    private fun init() {
+        Timber.d("Getting Character From Database")
+        viewModel.getCharacter().observe(viewLifecycleOwner, Observer { character ->
+            Timber.d("Retrieved $character")
+            adapter.setAttributes(character.attributes.sortedBy { it.attributeType }.toList())
         })
     }
 }
