@@ -91,11 +91,27 @@ sealed class Attributes(
     class Intelligence: Attributes(0, AttributeType.MENTAL, R.string.intelligence)
     class Wits: Attributes(0, AttributeType.MENTAL, R.string.wits)
     class Resolve: Attributes(0, AttributeType.MENTAL, R.string.resolve)
+
+    override fun equals(other: Any?): Boolean {
+        if (this === other) return true
+        if (javaClass != other?.javaClass) return false
+        other as Attributes
+        if (attributeType != other.attributeType) return false
+        if (nameRes != other.nameRes) return false
+
+        return true
+    }
+
+    override fun hashCode(): Int {
+        var result = attributeType.hashCode()
+        result = 31 * result + nameRes
+        return result
+    }
 }
 
 fun List<Attributes>.getAttributeOfType(attribute: Attributes): Attributes? {
     for (attr: Attributes in this) {
-        if (attr.nameRes == attribute.nameRes) return attr
+        if (attr == attribute) return attr
     }
     return null
 }

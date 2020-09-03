@@ -44,6 +44,19 @@ class AttributeAssignmentAdapter :
             if (previouslyAssignedDots > 0) {
                 attributes.getAttributeOfType(it)?.dotsAssigned = previouslyAssignedDots
             }
+            for (view: AttributeViewHolder in attributeViews) {
+                if (view.attribute == attribute) {
+                    view.setSelectedAttribute(oldAttribute)
+                }
+            }
+        }
+    }
+
+    fun applyAttributes(attributes: List<Attributes>) {
+        for ((index, view: AttributeViewHolder) in attributeViews.withIndex()) {
+            this.attributes = attributes.sortedBy { it.dotsAssigned }
+            val attribute = this.attributes[index]
+            view.setSelectedAttribute(attribute)
         }
     }
 }
@@ -69,6 +82,14 @@ class AttributeViewHolder(
                     attribute = selectedAttribute
                 }
             }
+        }
+    }
+
+    fun setSelectedAttribute(attribute: Attributes) {
+        val newIndex = Attributes.values().indexOf(attribute)
+        binding.attributeSpinner.auto_complete_view.apply {
+            setSelection(newIndex)
+            setText(context.getText(attribute.nameRes), false)
         }
     }
 }

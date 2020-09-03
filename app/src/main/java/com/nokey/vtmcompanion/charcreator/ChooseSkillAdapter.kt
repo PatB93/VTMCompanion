@@ -45,7 +45,7 @@ class SkillViewHolder(private val binding: ChooseSkillItemBinding) :
     RecyclerView.ViewHolder(binding.root) {
     fun bind(dots: Int) {
         binding.apply {
-            dotsIndicator.text = binding.requireContext().getString(R.string.dots, dots)
+            dotsIndicator.setDots(dots)
             skillSpinner.setAdapter(
                 ArrayAdapter<String>(
                     binding.requireContext(),

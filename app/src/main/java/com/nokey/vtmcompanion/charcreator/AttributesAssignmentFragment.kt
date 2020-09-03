@@ -37,9 +37,9 @@ class AttributesAssignmentFragment :
 
     override fun onResume() {
         super.onResume()
-//        if (viewModel.attributes.size == 9) {
-//            adapter.applyAttributes(viewModel.attributes)
-//        }
+        if (viewModel.attributes.size == 9) {
+            adapter.applyAttributes(viewModel.attributes)
+        }
     }
 
     override fun onPause() {
