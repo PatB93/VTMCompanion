@@ -7,9 +7,12 @@ import android.view.ViewGroup
 import androidx.navigation.navGraphViewModels
 import com.nokey.vtmcompanion.DaggerNavigationFragment
 import com.nokey.vtmcompanion.R
+import com.nokey.vtmcompanion.data.Attributes
 import com.nokey.vtmcompanion.databinding.FragmentAttributesAssignmentBinding
+import com.nokey.vtmcompanion.hideKeyboard
 
-class AttributesAssignmentFragment: DaggerNavigationFragment<FragmentAttributesAssignmentBinding>() {
+class AttributesAssignmentFragment :
+    DaggerNavigationFragment<FragmentAttributesAssignmentBinding>() {
     private val viewModel by navGraphViewModels<CharacterCreationViewModel>(R.id.char_creation_graph) {
         defaultViewModelProviderFactory
     }
@@ -20,16 +23,15 @@ class AttributesAssignmentFragment: DaggerNavigationFragment<FragmentAttributesA
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        binding = FragmentAttributesAssignmentBinding.inflate(inflater, container, false).also {
-            it.attributeList.adapter = adapter
-            it.nextButton.setOnClickListener {
-                for (views: AttributeViewHolder in adapter.attributeViews) {
-                    viewModel.attributes[views.attribute] = views.dots
+        binding = FragmentAttributesAssignmentBinding.inflate(inflater, container, false)
+            .also { binding ->
+                binding.attributeList.adapter = adapter
+                binding.nextButton.setOnClickListener {
+                    viewModel.attributes = adapter.attributes
+                    AttributesAssignmentFragmentDirections.actionAttributeAssignmentToSkillAssignment()
+                        .navigate()
                 }
-                AttributesAssignmentFragmentDirections.actionAttributeAssignmentToSkillAssignment()
-                    .navigate()
             }
-        }
         return binding?.root
     }
 
@@ -38,5 +40,10 @@ class AttributesAssignmentFragment: DaggerNavigationFragment<FragmentAttributesA
         if (viewModel.attributes.size == 9) {
             adapter.applyAttributes(viewModel.attributes)
         }
+    }
+
+    override fun onPause() {
+        super.onPause()
+        view?.hideKeyboard()
     }
 }

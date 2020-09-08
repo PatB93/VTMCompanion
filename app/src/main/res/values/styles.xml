@@ -23,4 +23,13 @@
     <style name="AppTheme.TextInputView" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
         <item name="boxStrokeColor">@color/colorPrimary</item>
     </style>
+    <declare-styleable name="DotsView">
+        <attr name="dots" format="integer"/>
+    </declare-styleable>
+    <style name="AppTheme.Checkbox" parent="Widget.AppCompat.CompoundButton.CheckBox">
+        <item name="android:clickable">false</item>
+        <item name="android:layout_width">20dp</item>
+        <item name="android:button">@drawable/dot_selector</item>
+        <item name="buttonTint">#0a0a0a</item>
+    </style>
 </resources>

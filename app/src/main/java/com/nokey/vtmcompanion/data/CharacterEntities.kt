@@ -4,24 +4,38 @@ import androidx.annotation.StringRes
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 import androidx.room.TypeConverter
+import com.nokey.vtmcompanion.R
 import com.squareup.moshi.Moshi
 import com.squareup.moshi.Types
+import com.squareup.moshi.adapters.PolymorphicJsonAdapterFactory
 import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
 import java.security.InvalidParameterException
 
 @Entity
-data class Character(
-    @PrimaryKey
+class Character(
     val characterName: String,
     val sireName: String,
     val selectedClan: Clan,
     val skills: DistributionTypes,
-    val attributes: MutableMap<Attributes, Short>,
+    val attributes: List<Attributes>,
     val disciplines: List<Discipline>
-)
+) {
+    @PrimaryKey(autoGenerate = true)
+    var id: Int = 0
+}
 
 class CharacterConverters {
     private val moshi: Moshi = Moshi.Builder()
+        .add(PolymorphicJsonAdapterFactory.of(Attributes::class.java, "nameRes")
+            .withSubtype(Attributes.Strength::class.java, "strength")
+            .withSubtype(Attributes.Dexterity::class.java, "dexterity")
+            .withSubtype(Attributes.Stamina::class.java, "stamina")
+            .withSubtype(Attributes.Charisma::class.java, "charisma")
+            .withSubtype(Attributes.Manipulation::class.java, "manipulation")
+            .withSubtype(Attributes.Composure::class.java, "composure")
+            .withSubtype(Attributes.Intelligence::class.java, "intelligence")
+            .withSubtype(Attributes.Wits::class.java, "wits")
+            .withSubtype(Attributes.Resolve::class.java, "resolve"))
         .add(KotlinJsonAdapterFactory())
         .build()
 
@@ -54,20 +68,17 @@ class CharacterConverters {
     }
 
     @TypeConverter
-    fun attributeToJson(attributes: MutableMap<Attributes, Short>): String {
-        val adapter = moshi.adapter(MutableMap::class.java)
+    fun attributesToJson(attributes: List<Attributes>): String {
+        val type = Types.newParameterizedType(List::class.java, Attributes::class.java)
+        val adapter = moshi.adapter<List<Attributes>>(type)
         return adapter.toJson(attributes)
     }
 
     @TypeConverter
-    fun jsonToAttributes(json: String): MutableMap<Attributes, Short>? {
-        val type = Types.newParameterizedType(
-            MutableMap::class.java,
-            Attributes::class.java,
-            Short::class.java
-        )
-        val adapter = moshi.adapter<MutableMap<Attributes, Short>>(type)
-        return adapter.fromJson(json)
+    fun jsonToAttributes(attributes: String): List<Attributes>? {
+        val type = Types.newParameterizedType(List::class.java, Attributes::class.java)
+        val adapter = moshi.adapter<List<Attributes>>(type)
+        return adapter.fromJson(attributes)
     }
 
     @TypeConverter

@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@+id/splashScreen">
+    app:startDestination="@id/splashScreen">
 
     <fragment
         android:id="@+id/splashScreen"
@@ -14,6 +14,10 @@
             android:id="@+id/action_splashScreen_to_chooseClan"
             app:destination="@id/char_creation_graph"
             app:exitAnim="@anim/fragment_fade_exit" />
+
+        <action
+            android:id="@+id/action_splashScreen_characterSheet"
+            app:destination="@id/character_graph"/>
     </fragment>
 
     <navigation
@@ -65,6 +69,21 @@
             android:label="@string/create_character_discipline_selection"
             android:name="com.nokey.vtmcompanion.charcreator.DisciplineSelectionFragment"
             tools:layout="@layout/fragment_discipline_selection">
+            <action
+                android:id="@+id/action_disciplineSelection_characterSheet"
+                app:destination="@id/character_graph"/>
         </fragment>
+    </navigation>
+
+    <navigation
+        android:id="@+id/character_graph"
+        app:startDestination="@+id/character_sheet">
+
+        <fragment
+            android:id="@+id/character_sheet"
+            android:name="com.nokey.vtmcompanion.charsheet.CharacterSheetFragment"
+            android:label=" "
+            tools:layout="@layout/fragment_character_sheet" />
+
     </navigation>
 </navigation>
